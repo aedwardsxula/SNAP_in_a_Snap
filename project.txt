@@ -1,0 +1,96 @@
+﻿Kas Team Project 
+Tasks 
+1. Create the Snap in Snap Mobile App* 
+   1. Build homepage*
+      1. Build a shopping list*
+         1. Build search bar to allow you to search for grocery items
+         2. Add filter options like All, Breakfast, Lunch …
+         3. Add grocery items in shopping list*
+            1. Recommend default grocery items data used in Snap in Snap*
+               1. Add grocery item*
+                  1. add grocery name*
+                  2. add price*
+                  3. add description for item
+                  4. add image for item
+                  5. add store name 
+            2. Recommend actual live data for actual items
+      2. Build Location filter and Means of Transportation filter*
+         1. Add feature that allows user to enter their preferred location*
+         2. Show Options to choose from (e.g bus, car, walk)*
+         3. Add feature that allows user to enter their 
+      3. Build Compare Prices*
+         1. Show different store plans*
+            1. Show best prices based on a single store and rank three top stores according to total costs* (One store plan)
+               1. Show list of items chosen and their corresponding cost
+               2. Show the estimates groceries cost
+               3. Show the gas prices
+               4. Show the total cost
+            2. Show best prices based on multiple stores* (Split between store plan)
+            3. Show how much you are saving if you chose one option above another.
+            4. Show route for choosing a plan*
+               1. Show the map image for choosing a plan
+               2. Show the locations user would arrive in order and the directions
+               3. Add direction button that redirects user to Google Maps that shows user journey trip to suggested location
+         2. Recommend things you might need
+   2. Build Cart*
+i. Create a separate cart screen (cart icon button)
+1. Add an “Add to Cart” option to each grocery item
+2. Save them to the cart and can only be displayed once Cart Icon is clicked
+ii. Allow users to remove items from cart
+1. Add (+) and (-) buttons to increase or decrease quantity
+                        iii. Display grocery items in cart
+1. Show item name 
+2. Show price and quantity
+3. Calculate total sum of items in the cart (Update when added or removed)
+4. Update total when quantity changes 
+                        iv. Show number of items added next to cart icon
+                        v. Show number of items added next to cart icon
+                        vi. Add continue shopping button 
+1. Option to clear (button)
+2. Add SNAP budget feature 
+3. DIsplay warning when total exceeds budget 
+
+
+
+
+
+
+
+
+                
+
+
+
+
+
+
+
+
+
+
+   3. Build Info About EBT benefits*
+      1. Add five dropdown menu with questions 
+         1. What is snap/EBT
+         2. What can I buy?
+         3. What can’t I buy?
+            1. Add official snap page link 
+         4. Who runs SNAP in Louisiana?
+         5. How do I apply?
+            1. Add apply online button (navigates to website)
+            2. Add snap information button  (navigates to website)
+            3. Add wic for women, infants, and children button  (navigates to website)
+      2. Add ready to shop button that (navigates to homepage) 
+      3. Add Learn about EBT benefits title 
+      4. Add Back to start button 
+   4. Build Navigation Bar
+
+
+
+
+
+
+HOW TO HIDE YOUR API KEY
+* Create a .env file
+* create a variable to hold it e.g “API_KEY = 1JSNUN9EI0HFC0I”
+* Add the filename “.env” to gitignore file to prevent git from tracking the file.
+* Ensure to never push .env file to github !
