@@ -20,3 +20,4 @@ GitHub: OluwaseyiPopoola
 | Who | Date | What |
 |---|---|---|
 | Andres | 11/12/2026 | Updated the README and worked on the cart tasks |
+| Kylan | 11/14/2026|  Show Options to choose from (e.g bus, car, walk)* Add feature that allows user to enter their |
