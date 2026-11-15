@@ -22,3 +22,4 @@ GitHub: OluwaseyiPopoola
 | Andres | 11/12/2026 | Updated the README and worked on the cart tasks |
 | Kylan | 11/14/2026|  Show Options to choose from (e.g bus, car, walk)* Add feature that allows user to enter their |
 | Andres | 11/14/2026 | Recommend default grocery items data used in Snap in Snap* |
+| Seyi | 11/14/2026 | Build search bar to allow you to search for grocery items |
