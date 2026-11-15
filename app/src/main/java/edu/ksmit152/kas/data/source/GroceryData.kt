@@ -1,5 +1,6 @@
+package edu.ksmit152.kas.data.source
 
-package edu.ksmit152.kas
+import edu.ksmit152.kas.data.model.GroceryItem
 
 object GroceryData {
 
