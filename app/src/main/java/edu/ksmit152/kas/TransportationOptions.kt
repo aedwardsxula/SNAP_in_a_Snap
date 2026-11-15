@@ -1,6 +1,9 @@
 package edu.ksmit152.kas
 
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
@@ -11,6 +14,8 @@ import androidx.compose.material.icons.filled.DirectionsBus
 import androidx.compose.material.icons.filled.DirectionsCar
 import androidx.compose.material.icons.filled.Edit
 import androidx.compose.material.icons.filled.Share
+import androidx.compose.material3.Card
+import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
@@ -43,14 +48,13 @@ fun TravelModeSelector() : String {
 
     val options = listOf(
         Triple("Car", Icons.Default.DirectionsCar, "Car"),
-        Triple("Bus or streetcar", Icons.Default.DirectionsBus, "Bus"),
+        Triple("Bus", Icons.Default.DirectionsBus, "Bus"),
         Triple("Walk", Icons.AutoMirrored.Filled.DirectionsWalk, "Walk")
     )
 
     SingleChoiceSegmentedButtonRow(
         modifier = Modifier
             .fillMaxWidth()
-            .padding(16.dp)
     ) {
         options.forEachIndexed { index, (label, icon, value) ->
 
@@ -97,10 +101,6 @@ fun EnterZipCode() {
     OutlinedTextField(
         value = zipCode,
         onValueChange = { zipCode = it },
-        modifier = Modifier.width(120.dp),
-//        label = {
-//            Text("ZIP Code")
-//        },
         placeholder = {
             Text(
                 text = "eg.${approvedZipCodes.first()}",
@@ -123,3 +123,38 @@ fun EnterZipCode() {
     )
 }
 
+@Composable
+fun ZipCodeAndTravelOptions () {
+
+    Card(
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(16.dp),
+        elevation = CardDefaults.cardElevation(
+            defaultElevation = 4.dp
+        )
+    ) {
+        Row(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(16.dp),
+            horizontalArrangement = Arrangement.spacedBy(24.dp),
+            verticalAlignment = Alignment.Top
+        ) {
+
+            Column(
+                modifier = Modifier.weight(1f)
+            ) {
+                Text("Enter zip code")
+                EnterZipCode()
+            }
+
+            Column(
+                modifier = Modifier.weight(2f)
+            ) {
+                Text("How will you get there?")
+                TravelModeSelector()
+            }
+        }
+    }
+}
