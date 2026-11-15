@@ -3,6 +3,7 @@ package edu.ksmit152.kas
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.width
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.DirectionsWalk
 import androidx.compose.material.icons.filled.Delete
@@ -14,6 +15,7 @@ import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.SegmentedButton
 import androidx.compose.material3.SegmentedButtonDefaults
 import androidx.compose.material3.SingleChoiceSegmentedButtonRow
@@ -27,6 +29,8 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.dp
 
 
@@ -78,5 +82,44 @@ fun TravelModeSelector() : String {
 
     return selectedMode
 }
+@Composable
+fun EnterZipCode() {
 
+    val approvedZipCodes = listOf(
+        "70117"
+    )
+
+    var zipCode by remember { mutableStateOf("") }
+
+    val isInvalid = zipCode.isNotEmpty() &&
+            zipCode !in approvedZipCodes
+
+    OutlinedTextField(
+        value = zipCode,
+        onValueChange = { zipCode = it },
+        modifier = Modifier.width(120.dp),
+//        label = {
+//            Text("ZIP Code")
+//        },
+        placeholder = {
+            Text(
+                text = "eg.${approvedZipCodes.first()}",
+                color = Color.Gray
+            )
+        },
+        isError = isInvalid,
+        textStyle = TextStyle(
+            color = if (isInvalid) Color.Red else Color.Black
+        ),
+        supportingText = {
+            if (isInvalid) {
+                Text(
+                    text = "Enter an approved ZIP code",
+                    color = Color.Red
+                )
+            }
+        },
+        singleLine = true
+    )
+}
 
