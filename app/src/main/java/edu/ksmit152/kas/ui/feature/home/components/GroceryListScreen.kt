@@ -1,4 +1,4 @@
-package edu.ksmit152.kas.ui.theme.feature.home.components
+package edu.ksmit152.kas.ui.feature.home.components
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column

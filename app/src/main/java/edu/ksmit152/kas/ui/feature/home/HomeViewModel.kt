@@ -1,4 +1,4 @@
-package edu.ksmit152.kas.ui.feature
+package edu.ksmit152.kas.ui.feature.home
 
 import androidx.lifecycle.ViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
