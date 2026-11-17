@@ -5,19 +5,25 @@
 **Kylan Smith – Navigator**  
 Email: ksmit152@xula.edu  
 GitHub: kylansm98
+
 @kylan Task NUMBER - TEXT, due 11/24/2026
+
 @kylan Task NUMBER - TEXT, due 11/30/2026
 
 **Andres Santos – Driver**  
 Email: asantos1@xula.edu  
 GitHub: andresjsantos
+
 @andres Task NUMBER - TEXT, due 11/24/2026
+
 @andres Task NUMBER - TEXT, due 11/30/2026
 
 **Oluwaseyi Popoola – Tester**  
 Email: opopoola@xula.edu  
 GitHub: OluwaseyiPopoola
+
 @seyi Task NUMBER - TEXT, due 11/24/2026
+
 @seyi Task NUMBER - TEXT, due 11/30/2026
 
 ## Goal
