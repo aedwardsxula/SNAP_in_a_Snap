@@ -1,5 +1,4 @@
-
-package edu.ksmit152.kas
+package edu.ksmit152.kas.ui.feature.home.components
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -15,6 +14,8 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import edu.ksmit152.kas.data.model.GroceryItem
+import edu.ksmit152.kas.data.source.GroceryData
 import java.util.Locale
 
 @Composable

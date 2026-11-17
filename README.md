@@ -20,23 +20,17 @@ The goal of SNAP in a SNAP is to make grocery shopping easier for pregnant mothe
 
 ## Getting Started
 
-To download and run SNAP in a SNAP:
+To download and run the project:
 
-1. Install Android Studio on your computer.
-2. Open Terminal and clone the repository:
+1. Open Terminal on your computer.
+2. Clone the GitHub repository:
 
    `git clone https://github.com/aedwardsxula/SNAP_in_a_Snap.git`
 
-3. Open Android Studio and select **Open**.
-4. Select the downloaded `SNAP_in_a_Snap` folder.
-5. Wait for Gradle to finish syncing.
-6. Open Device Manager and create or select an Android emulator.
-7. Select the emulator at the top of Android Studio.
-8. Click the green Run button to build and launch the app.
-
-You can also build the project using Terminal:
-
-`./gradlew assembleDebug`
+3. Open the `SNAP_in_a_Snap` folder.
+4. Install the required dependencies.
+5. Start the app using the project's run command.
+6. Make sure the app opens and works correctly.
 
 ## Project Updates
 
