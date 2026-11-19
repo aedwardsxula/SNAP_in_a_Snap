@@ -6,9 +6,9 @@
 Email: ksmit152@xula.edu  
 GitHub: kylansm98
 
-@kylan Task 3 -  Show best prices based on a single store and rank three top stores according to total costs* (One store plan), due 11/24/2026
+@kylan Task 1 - Build a shopping list , due 11/24/2026
 
-@kylan Task NUMBER - TEXT, due 11/30/2026
+@kylan Task 3 - Show best prices based on a single store and rank three top stores according to total costs* (One store plan), due 11/30/2026
 
 **Andres Santos – Driver**  
 Email: asantos1@xula.edu  
