@@ -6,7 +6,7 @@
 Email: ksmit152@xula.edu  
 GitHub: kylansm98
 
-@kylan Task NUMBER - TEXT, due 11/24/2026
+@kylan Task 3 -  Show best prices based on a single store and rank three top stores according to total costs* (One store plan), due 11/24/2026
 
 @kylan Task NUMBER - TEXT, due 11/30/2026
 
