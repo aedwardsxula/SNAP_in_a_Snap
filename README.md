@@ -22,10 +22,6 @@ GitHub: andresjsantos
 Email: opopoola@xula.edu  
 GitHub: OluwaseyiPopoola
 
-@seyi Task NUMBER - TEXT, due 11/24/2026
-
-@seyi Task NUMBER - TEXT, due 11/30/2026
-
 ## Goal
 
 The goal of SNAP in a SNAP is to make grocery shopping easier for pregnant mothers who use SNAP benefits. Our app allows users to search for grocery items, add them to their cart, and plan what they need before going shopping. We want to help users save time, stay organized, and make grocery shopping less stressful.
