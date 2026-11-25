@@ -21,13 +21,14 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
+import edu.ksmit152.kas.ui.feature.home.components.SnapBudget
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun HomeScreen(
     viewModel: HomeViewModel,
-    modifier: Modifier = Modifier) {
-
+    modifier: Modifier = Modifier
+) {
     val searchQuery by viewModel.searchQuery.collectAsState()
 
     Scaffold(
@@ -45,11 +46,10 @@ fun HomeScreen(
         }
     ) { innerPadding ->
         Box(modifier = Modifier.padding(innerPadding)) {
-            // Home screen content will be added later.
+            SnapBudget()
         }
     }
 }
-
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -70,7 +70,9 @@ private fun GrocerySearchBar(
                 },
                 expanded = expanded,
                 onExpandedChange = { expanded = it },
-                placeholder = { Text("Search for grocery items...") },
+                placeholder = {
+                    Text("Search for grocery items...")
+                },
                 leadingIcon = {
                     Icon(
                         imageVector = Icons.Default.Search,
@@ -78,19 +80,14 @@ private fun GrocerySearchBar(
                         modifier = Modifier.clickable {
                             expanded = !expanded
                         }
-
                     )
                 }
             )
         },
-
         expanded = expanded,
         onExpandedChange = { expanded = it },
         windowInsets = WindowInsets(0, 0, 0, 0),
-        modifier = modifier
-            .fillMaxWidth()
-//            .padding(horizontal = 16.dp, vertical = 8.dp)
+        modifier = modifier.fillMaxWidth()
     ) {
     }
 }
-
