@@ -13,7 +13,9 @@ import java.util.Locale
 @Composable
 fun SnapBudget() {
     var budget by rememberSaveable { mutableStateOf("") }
+
     val amount = budget.toDoubleOrNull()
+    val validBudget = amount != null && amount.isFinite() && amount >= 0
 
     Card(
         modifier = Modifier
@@ -34,20 +36,34 @@ fun SnapBudget() {
                 value = budget,
                 onValueChange = { budget = it },
                 label = { Text("Enter your SNAP budget") },
+                prefix = { Text("$") },
                 keyboardOptions = KeyboardOptions(
                     keyboardType = KeyboardType.Decimal
                 ),
                 singleLine = true,
+                isError = budget.isNotEmpty() && !validBudget,
                 modifier = Modifier.fillMaxWidth()
             )
 
             Spacer(modifier = Modifier.height(12.dp))
 
-            if (amount != null && amount.isFinite() && amount >= 0) {
+            if (validBudget) {
                 Text(
                     "Available budget: " +
                             String.format(Locale.US, "$%.2f", amount)
                 )
+            } else if (budget.isNotEmpty()) {
+                Text(
+                    text = "Please enter a valid budget",
+                    color = MaterialTheme.colorScheme.error
+                )
+            }
+
+            Spacer(modifier = Modifier.height(8.dp))
+
+            OutlinedButton(
+                onClick = { budget = "" }
+            ) { Text("Reset Budget")
             }
         }
     }
