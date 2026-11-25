@@ -52,6 +52,15 @@ fun GroceryScreen() {
         "All", "Breakfast", "Lunch", "Dinner",
         "Snacks", "Produce", "Pantry"
     )
+    val usualCart = listOf(
+        GroceryItem("Milk", "Breakfast"),
+        GroceryItem("Eggs", "Breakfast"),
+        GroceryItem("Bread", "Breakfast"),
+        GroceryItem("Chicken", "Dinner"),
+        GroceryItem("Rice", "Dinner"),
+        GroceryItem("Apples", "Produce"),
+        GroceryItem("Bananas", "Produce")
+    )
 
     val groceryCatalog = listOf(
         GroceryItem("Eggs", "Breakfast"),
@@ -249,7 +258,9 @@ fun GroceryScreen() {
             Spacer(modifier = Modifier.height(18.dp))
 
             OutlinedButton(
-                onClick = { },
+                onClick = {
+                    groceryItems = groceryItems + usualCart
+                },
                 modifier = Modifier
                     .fillMaxWidth()
                     .height(65.dp),
@@ -274,11 +285,71 @@ fun GroceryScreen() {
 
             Spacer(modifier = Modifier.height(16.dp))
 
-            Text(
-                text = "Your list is empty. Search above or use your usual cart.",
-                fontSize = 17.sp,
-                color = Color.DarkGray
-            )
+
+            if (groceryItems.isEmpty()) {
+
+                Text(
+                    text = "Your list is empty. Search above or use your usual cart.",
+                    fontSize = 17.sp,
+                    color = Color.DarkGray
+                )
+
+            } else {
+
+                Text(
+                    text = "My Items (${groceryItems.size})",
+                    fontSize = 20.sp,
+                    fontWeight = FontWeight.Bold
+                )
+
+                Spacer(modifier = Modifier.height(12.dp))
+
+                groceryItems.forEachIndexed { index, item ->
+
+                    Row(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(vertical = 8.dp),
+                        verticalAlignment = Alignment.CenterVertically
+                    ) {
+
+
+                        Column(
+                            modifier = Modifier.weight(1f)
+                        ) {
+
+                            Text(
+                                text = item.name,
+                                fontSize = 17.sp,
+                                color = if (item.isChecked) {
+                                    Color.Gray
+                                } else {
+                                    DarkText
+                                }
+                            )
+
+                            Text(
+                                text = item.category,
+                                fontSize = 12.sp,
+                                color = Color.Gray
+                            )
+                        }
+
+                        TextButton(
+                            onClick = {
+                                groceryItems = groceryItems.filterIndexed {
+                                        i, _ -> i != index
+                                }
+                            }
+                        ) {
+                            Text("Remove")
+                        }
+                    }
+
+                    HorizontalDivider(color = Border)
+                }
+            }
+
         }
     }
 }
