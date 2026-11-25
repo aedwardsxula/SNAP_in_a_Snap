@@ -5,6 +5,7 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.background
+import androidx.compose.foundation.horizontalScroll
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
@@ -36,7 +37,11 @@ class ShoppingList : ComponentActivity() {
         }
     }
 }
-
+data class GroceryItem(
+    val name: String,
+    val category: String,
+    val isChecked: Boolean = false
+)
 @Composable
 fun GroceryScreen() {
 
@@ -48,9 +53,47 @@ fun GroceryScreen() {
         "Snacks", "Produce", "Pantry"
     )
 
+    val groceryCatalog = listOf(
+        GroceryItem("Eggs", "Breakfast"),
+        GroceryItem("Milk", "Breakfast"),
+        GroceryItem("Bread", "Breakfast"),
+        GroceryItem("Cereal", "Breakfast"),
+        GroceryItem("Chicken", "Dinner"),
+        GroceryItem("Rice", "Dinner"),
+        GroceryItem("Pasta", "Dinner"),
+        GroceryItem("Lettuce", "Produce"),
+        GroceryItem("Apples", "Produce"),
+        GroceryItem("Bananas", "Produce"),
+        GroceryItem("Chips", "Snacks"),
+        GroceryItem("Granola Bars", "Snacks"),
+        GroceryItem("Beans", "Pantry"),
+        GroceryItem("Flour", "Pantry")
+    )
     var selectedCategory by remember {
         mutableStateOf("All")
     }
+
+    var groceryItems by remember {
+        mutableStateOf(listOf<GroceryItem>())
+    }
+
+    val filteredItems = groceryCatalog.filter { item ->
+
+        val matchesSearch = item.name.contains(
+            search,
+            ignoreCase = true
+        )
+
+        val matchesCategory =
+            selectedCategory == "All" ||
+                    item.category == selectedCategory
+
+        matchesSearch && matchesCategory
+    }
+
+
+
+
 
     Surface(
         modifier = Modifier.fillMaxSize(),
@@ -99,7 +142,16 @@ fun GroceryScreen() {
             Spacer(modifier = Modifier.height(16.dp))
 
             Button(
-                onClick = { },
+                onClick = {
+                    val itemsToAdd = newItem.split(",")
+
+                    groceryItems = groceryItems + itemsToAdd
+                        .map { it.trim() }
+                        .filter { it.isNotBlank() }
+                        .map { GroceryItem(it, "Other") }
+
+                    newItem = ""
+                },
                 modifier = Modifier
                     .fillMaxWidth()
                     .height(68.dp),
@@ -139,7 +191,9 @@ fun GroceryScreen() {
             Spacer(modifier = Modifier.height(10.dp))
 
             Row(
-                modifier = Modifier.fillMaxWidth(),
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .horizontalScroll(rememberScrollState()),
                 horizontalArrangement = Arrangement.spacedBy(8.dp)
             ) {
                 categories.forEach { category ->
@@ -151,6 +205,44 @@ fun GroceryScreen() {
                         },
                         label = { Text(category) }
                     )
+                }
+            }
+
+            if (search.isNotBlank() || selectedCategory != "All") {
+
+                filteredItems.forEach { item ->
+
+                    Row(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(vertical = 6.dp),
+                        horizontalArrangement = Arrangement.SpaceBetween,
+                        verticalAlignment = Alignment.CenterVertically
+                    ) {
+
+                        Column {
+                            Text(item.name)
+                            Text(
+                                item.category,
+                                color = Color.Gray,
+                                fontSize = 12.sp
+                            )
+                        }
+
+                        TextButton(
+                            onClick = {
+                                if (groceryItems.none {
+                                        it.name.equals(item.name, ignoreCase = true)
+                                    }) {
+                                    groceryItems = groceryItems + item
+                                }
+
+                                search = ""
+                            }
+                        ) {
+                            Text("Add")
+                        }
+                    }
                 }
             }
 
@@ -190,3 +282,6 @@ fun GroceryScreen() {
         }
     }
 }
+
+
+
