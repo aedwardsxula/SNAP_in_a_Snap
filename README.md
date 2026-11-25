@@ -49,3 +49,4 @@ To download and run the project: [@andres You'll know this is correct when you c
 | Andres | 11/14/2026 | Recommend default grocery items data used in SNAP in a SNAP |
 | Seyi | 11/14/2026 | Build a search bar to allow users to search for grocery items |
 | Andres | 11/24/2026 | Add SNAP budget feature |
+|Kylan| 11/24/2026| Add Shopping list feature |
